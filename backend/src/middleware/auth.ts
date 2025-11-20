@@ -2,15 +2,24 @@ import { Request, Response, NextFunction } from 'express';
 import { ConfidentialClientApplication } from '@azure/msal-node';
 import { authConfig } from '../config/config';
 
-const msalConfig = {
-  auth: {
-    clientId: authConfig.clientId,
-    authority: authConfig.authority,
-    clientSecret: authConfig.clientSecret,
-  },
-};
+// Only initialize MSAL if credentials are provided
+let cca: ConfidentialClientApplication | null = null;
 
-const cca = new ConfidentialClientApplication(msalConfig);
+if (authConfig.clientId && authConfig.clientSecret && authConfig.authority) {
+  const msalConfig = {
+    auth: {
+      clientId: authConfig.clientId,
+      authority: authConfig.authority,
+      clientSecret: authConfig.clientSecret,
+    },
+  };
+  
+  try {
+    cca = new ConfidentialClientApplication(msalConfig);
+  } catch (error) {
+    console.warn('MSAL initialization failed, running in mock mode');
+  }
+}
 
 export const validateToken = async (
   req: Request,
@@ -28,7 +37,7 @@ export const validateToken = async (
     const token = authHeader.substring(7);
     
     // For now, we'll accept any token format
-    // In production, validate the JWT token properly
+    // In production, validate the JWT token properly using cca
     if (token) {
       next();
     } else {
