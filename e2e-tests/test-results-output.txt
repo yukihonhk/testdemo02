@@ -1,0 +1,15 @@
+
+> e2e-tests@1.0.0 test
+> playwright test
+
+
+Running 6 tests using 1 worker
+
+  ✓  1 [chromium] › tests/helpdesk.spec.ts:4:7 › IT Helpdesk Portal › should load the homepage (654ms)
+  ✓  2 [chromium] › tests/helpdesk.spec.ts:14:7 › IT Helpdesk Portal › should navigate through tabs (1.3s)
+  ✓  3 [chromium] › tests/helpdesk.spec.ts:38:7 › IT Helpdesk Portal › should submit a question in Q&A (4.1s)
+  ✓  4 [chromium] › tests/helpdesk.spec.ts:64:7 › IT Helpdesk Portal › should search knowledge base (1.8s)
+  ✓  5 [chromium] › tests/helpdesk.spec.ts:84:7 › IT Helpdesk Portal › should create a support ticket (2.9s)
+  ✓  6 [chromium] › tests/helpdesk.spec.ts:111:7 › IT Helpdesk Portal › should display ticket list (2.7s)
+
+  6 passed (14.4s)
