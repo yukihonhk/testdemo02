@@ -1,0 +1,33 @@
+# Backend
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/*.log
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# E2E Tests
+e2e-tests/node_modules/
+e2e-tests/playwright-report/
+e2e-tests/test-results/
+e2e-tests/screenshots/*.png
+
+# OS
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
